@@ -1,11 +1,11 @@
-FROM steamcmd/steamcmd:ubuntu-22
+FROM steamcmd/steamcmd:ubuntu-24
 
 ENV AUTOSAVENUM=5 \
   DEBIAN_FRONTEND=noninteractive \
   DEBUG=false \
   DISABLESEASONALEVENTS=false \
-  GAMECONFIGDIR=/config/gamefiles/FactoryGame/Saved \
-  GAMESAVESDIR=/home/steam/.config/Epic/FactoryGame/Saved/SaveGames \
+  GAMECONFIGDIR="/config/gamefiles/FactoryGame/Saved" \
+  GAMESAVESDIR="/home/steam/.config/Epic/FactoryGame/Saved/SaveGames" \
   LOG=true \
   MAXOBJECTS=2162688 \
   MAXPLAYERS=4 \
