@@ -1,25 +1,25 @@
 FROM steamcmd/steamcmd:ubuntu-24
 
-ENV AUTOSAVENUM="5" \
-  DEBIAN_FRONTEND="noninteractive" \
-  DEBUG="false" \
-  DISABLESEASONALEVENTS="false" \
+ENV AUTOSAVENUM=5 \
+  DEBIAN_FRONTEND=noninteractive \
+  DEBUG=false \
+  DISABLESEASONALEVENTS=false \
   GAMECONFIGDIR="/config/gamefiles/FactoryGame/Saved" \
   GAMESAVESDIR="/home/steam/.config/Epic/FactoryGame/Saved/SaveGames" \
-  LOG="false" \
-  MAXOBJECTS="2162688" \
-  MAXPLAYERS="4" \
-  MAXTICKRATE="30" \
-  PGID="1000" \
-  PUID="1000" \
-  ROOTLESS="false" \
-  SERVERGAMEPORT="7777" \
-  SERVERSTREAMING="true" \
-  SKIPUPDATE="false" \
-  STEAMAPPID="1690800" \
-  STEAMBETA="false" \
-  TIMEOUT="30" \
-  VMOVERRIDE="false"
+  LOG=false \
+  MAXOBJECTS=2162688 \
+  MAXPLAYERS=4 \
+  MAXTICKRATE=30 \
+  PGID=1000 \
+  PUID=1000 \
+  ROOTLESS=false \
+  SERVERGAMEPORT=7777 \
+  SERVERSTREAMING=true \
+  SKIPUPDATE=false \
+  STEAMAPPID=1690800 \
+  STEAMBETA=false \
+  TIMEOUT=30 \
+  VMOVERRIDE=false
 
 # hadolint ignore=DL3008
 RUN set -x \
