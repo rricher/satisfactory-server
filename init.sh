@@ -59,36 +59,6 @@ if [[ "$CURRENTUID" -ne "0" ]] && [[ "${ROOTLESS,,}" != "true" ]]; then
     exit 1
 fi
 
-if ! [[ "$PGID" =~ $NUMCHECK ]] ; then
-    printf "${MSGWARNING} Invalid group id given: %s\\n" "$PGID"
-    PGID="1000"
-elif [[ "$PGID" -eq 0 ]]; then
-    printf "${MSGERROR} PGID/group cannot be 0 (root)\\n"
-    exit 1
-fi
-
-if ! [[ "$PUID" =~ $NUMCHECK ]] ; then
-    printf "${MSGWARNING} Invalid user id given: %s\\n" "$PUID"
-    PUID="1000"
-elif [[ "$PUID" -eq 0 ]]; then
-    printf "${MSGERROR} PUID/user cannot be 0 (root)\\n"
-    exit 1
-fi
-
-if [[ "${ROOTLESS,,}" != "true" ]]; then
-  if [[ $(getent group $PGID | cut -d: -f1) ]]; then
-      usermod -a -G "$PGID" steam
-  else
-      groupmod -g "$PGID" steam
-  fi
-
-  if [[ $(getent passwd ${PUID} | cut -d: -f1) ]]; then
-      USER=$(getent passwd $PUID | cut -d: -f1)
-  else
-      usermod -u "$PUID" steam
-  fi
-fi
-
 if [[ ! -w "/config" ]]; then
     echo "The current user does not have write permissions for /config"
     exit 1
