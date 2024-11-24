@@ -15,6 +15,7 @@ services:
       - ROOTLESS=false
       - STEAMBETA=false
     restart: unless-stopped
+    pull_policy: build
     deploy:
       resources:
         limits:
