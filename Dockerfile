@@ -18,7 +18,7 @@ ENV AUTOSAVENUM=5 \
   SKIPUPDATE=false \
   STEAMAPPID=1690800 \
   STEAMBETA=false \
-  TIMEOUT=30 \
+  TIMEOUT=300 \
   VMOVERRIDE=false
 
 # hadolint ignore=DL3008
