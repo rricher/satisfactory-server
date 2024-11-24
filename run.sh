@@ -97,7 +97,7 @@ ln -sf "/config/saved" "$GAMESAVESDIR"
 
 if [ ! -f "/config/gamefiles/FactoryServer.sh" ]; then
     printf "FactoryServer launch script is missing.\\n"
-    wait
+    sleep 10m
 fi
 
 cd /config/gamefiles || exit 1
