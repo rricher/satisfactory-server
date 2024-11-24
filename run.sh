@@ -82,7 +82,7 @@ if [[ "${SKIPUPDATE,,}" != "true" ]]; then
     fi
 
     printf "\\nDownloading the latest version of the game...\\n"
-    steamcmd +runscript satisfactory_ds.txt
+    steamcmd +runscript "/config/satisfactory_ds.txt"
     cp -r /home/steam/.steam/steam/logs/* "/config/logs/steam" || printf "Failed to store Steam logs\\n"
 else
     printf "Skipping update as flag is set\\n"
