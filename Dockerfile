@@ -1,4 +1,4 @@
-FROM cm2network/steamcmd:ubuntu-24
+FROM steamcmd/steamcmd:ubuntu-22
 
 ENV AUTOSAVENUM=5 \
   DEBIAN_FRONTEND=noninteractive \
