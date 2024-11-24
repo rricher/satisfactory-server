@@ -9,7 +9,7 @@ services:
     volumes:
       - './satisfactory-server:/config'
     environment:
-      - MAXPLAYERS=4
+      - MAXPLAYERS=5
       - PGID=1000
       - PUID=1000
       - ROOTLESS=false
@@ -18,6 +18,6 @@ services:
     deploy:
       resources:
         limits:
-          memory: 8G
+          memory: 16G
         reservations:
           memory: 4G
