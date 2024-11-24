@@ -81,37 +81,37 @@ if [[ "${SKIPUPDATE,,}" != "true" ]]; then
         printf "You have less than 8GB (%sGB detected) of available storage to download the game.\\nIf this is a fresh install, it will probably fail.\\n" "$STORAGEAVAILABLE"
     fi
 
-    # printf "\\nDownloading the latest version of the game...\\n"
-    # /home/steam/steamcmd/steamcmd.sh +runscript satisfactory_ds.txt
-    # cp -r /home/steam/.steam/steam/logs/* "/config/logs/steam" || printf "Failed to store Steam logs\\n"
+    printf "\\nDownloading the latest version of the game...\\n"
+    /home/steam/steamcmd/steamcmd.sh +runscript satisfactory_ds.txt
+    cp -r /home/steam/.steam/steam/logs/* "/config/logs/steam" || printf "Failed to store Steam logs\\n"
 else
     printf "Skipping update as flag is set\\n"
 fi
 
-# printf "Launching game server\\n\\n"
+printf "Launching game server\\n\\n"
 
-# cp -r "/config/saved/server/." "/config/backups/"
-# cp -r "${GAMESAVESDIR}/server/." "/config/backups" # useful after the first run
-# rm -rf "$GAMESAVESDIR"
-# ln -sf "/config/saved" "$GAMESAVESDIR"
+cp -r "/config/saved/server/." "/config/backups/"
+cp -r "${GAMESAVESDIR}/server/." "/config/backups" # useful after the first run
+rm -rf "$GAMESAVESDIR"
+ln -sf "/config/saved" "$GAMESAVESDIR"
 
-# if [ ! -f "/config/gamefiles/FactoryServer.sh" ]; then
-#     printf "FactoryServer launch script is missing.\\n"
-#     exit 1
-# fi
+if [ ! -f "/config/gamefiles/FactoryServer.sh" ]; then
+    printf "FactoryServer launch script is missing.\\n"
+    exit 1
+fi
 
-# cd /config/gamefiles || exit 1
+cd /config/gamefiles || exit 1
 
-# chmod +x FactoryServer.sh || true
-# ./FactoryServer.sh -Port="$SERVERGAMEPORT" "${ini_args[@]}" "$@" &
+chmod +x FactoryServer.sh || true
+./FactoryServer.sh -Port="$SERVERGAMEPORT" "${ini_args[@]}" "$@" &
 
-# sleep 2
-# satisfactory_pid=$(ps --ppid ${!} o pid=)
+sleep 2
+satisfactory_pid=$(ps --ppid ${!} o pid=)
 
-# shutdown() {
-#     printf "\\nReceived SIGINT. Shutting down.\\n"
-#     kill -INT $satisfactory_pid 2>/dev/null
-# }
-# trap shutdown SIGINT SIGTERM
+shutdown() {
+    printf "\\nReceived SIGINT. Shutting down.\\n"
+    kill -INT $satisfactory_pid 2>/dev/null
+}
+trap shutdown SIGINT SIGTERM
 
-# wait
+wait
