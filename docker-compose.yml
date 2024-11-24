@@ -1,13 +1,13 @@
 services:
   satisfactory-server:
-    container_name: 'satisfactory-server'
-    hostname: 'satisfactory-server'
-    image: 'wolveix/satisfactory-server:latest'
+    container_name: satisfactory-server
+    hostname: satisfactory-server
+    build: .
     ports:
-      - '7777:7777/udp'
-      - '7777:7777/tcp'
+      - 7777:7777/udp
+      - 7777:7777/tcp
     volumes:
-      - './satisfactory-server:/config'
+      - truenas-satisfactory:/config
     environment:
       - MAXPLAYERS=5
       - PGID=1000
@@ -21,3 +21,7 @@ services:
           memory: 16G
         reservations:
           memory: 4G
+
+volumes:
+  truenas-satisfactory:
+    external: true
