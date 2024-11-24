@@ -3,6 +3,6 @@
 force_install_dir ./gamefiles
 //login <username> <password>
 //for servers which don't need a login
-login anonymous 
-app_update 1690800 validate
+login anonymous
+app_update 1690800 -beta public validate
 quit
