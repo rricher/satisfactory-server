@@ -1,6 +1,6 @@
 // update_satisfactory_ds.txt
 //
-force_install_dir ./gamefiles
+force_install_dir /home/config/gamefiles
 //login <username> <password>
 //for servers which don't need a login
 login anonymous
