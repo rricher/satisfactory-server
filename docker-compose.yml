@@ -7,7 +7,7 @@ services:
       - 7777:7777/udp
       - 7777:7777/tcp
     volumes:
-      - truenas-satisfactory:/config
+      - /mnt/prox-share/docker/satisfactory:/config
     environment:
       - MAXPLAYERS=5
       - PGID=1000

@@ -97,9 +97,6 @@ ln -sf "/config/saved" "$GAMESAVESDIR"
 
 if [ ! -f "/config/gamefiles/FactoryServer.sh" ]; then
     printf "FactoryServer launch script is missing.\\n"
-    printf "\\nCurrent user:\\n%s" "$(id)"
-    printf "\\nProposed user:\\nuid=%s(?) gid=%s(?) groups=%s(?)\\n" "$PUID" "$PGID" "$PGID"
-    printf "\\nCurrent pwe:\\n%s" "$(pwd)"
     sleep 10m
 fi
 
